@@ -163,6 +163,11 @@ body {
   gap: 120px;            /* espaço entre obras */
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 .art-card img {
   width: 100%;
@@ -244,3 +249,129 @@ body {
   font-size: 14px;
   opacity: 0.7;
 }
+
+@media (min-width: 1024px) {
+
+  .art-card {
+    height: 100vh; /* cada obra ocupa a tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .art-card img {
+    max-height: 80vh;   /* limita altura da imagem */
+    width: auto;        /* mantém proporção */
+    max-width: 100%;    /* evita estourar largura */
+    margin: 0 auto;     /* centraliza */
+    display: block;
+  }
+
+  .art-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+}
+
+.inquire-btn {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+}
+
+/* LINHA ESCONDIDA */
+.inquire-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+/* ANIMAÇÃO */
+.inquire-btn:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .timeline {
+    padding: 0 20px;
+  }
+
+  .event {
+    margin-bottom: 40px;
+  }
+
+  .event h3 {
+    font-size: 16px;
+  }
+
+  .event p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .internal-header {
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .internal-header h1 {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .back h1 {
+    font-size: 13px;
+  }
+
+}
+
+.contact {
+  padding: 120px 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-btn {
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+/* LINHA ANIMADA */
+.contact-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: 0.3s ease;
+}
+
+.contact-btn:hover::after {
+  width: 100%;
+}
+
