@@ -5,21 +5,22 @@
   box-sizing: border-box;
 }
 
-/* IMPORTANDO FONTE ELEGANTE */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap');
+html {
+  font-size: 16px;
+}
 
 body {
   background: #000;
   color: #fff;
   font-family: 'Inter', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* HERO */
 .hero {
   position: relative;
   height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* OVERLAY SUAVE */
@@ -52,7 +53,10 @@ body {
   opacity: 0;
   transform: scale(1);
   transition: opacity 1.5s ease-in-out, transform 8s ease-in-out;
+  background-size: cover;
+  background-position: center;
 }
+
 
 /* SLIDE ATIVO */
 .slide.active {
@@ -64,11 +68,10 @@ body {
 .hero-content {
   position: absolute;
   left: 8%;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 12%;
+  top: auto;
+  transform: none;
   z-index: 2;
-  animation: fadeUp 1.5s ease forwards;
-  opacity: 0;
 }
 
 /* ANIMAÇÃO ENTRADA */
@@ -85,18 +88,37 @@ body {
 
 /* NOME */
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 72px;
+  font-size: clamp(42px, 6vw, 72px);
   font-weight: 400;
-  letter-spacing: 8px;
-  margin-bottom: 50px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;  
+  line-height: 1.1;
 }
 
 /* MENU */
 .hero-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.hero-nav a {
+    font-family: "Lekton", monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.hero-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: white;
+  transform: translateY(-50%);
+  opacity: 0.6;
 }
 
 .hero-nav a {
@@ -114,17 +136,71 @@ body {
 }
 
 /* RESPONSIVO */
-@media(max-width: 768px) {
+@media (max-width: 768px) {
+
+  .hero-content {
+    left: 6%;
+    bottom: 10%;
+  }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: 36px;
+    letter-spacing: 2px;
+    line-height: 1.1;
+  }
+
+  .hero-nav {
+    gap: 10px;
+  }
+
+  .hero-nav a {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .hero-content {
+    left: 8%;
+    bottom: 12%;
+  }
+
+  .hero h1 {
+    font-size: 52px;
     letter-spacing: 4px;
   }
 
+  .hero-nav a {
+    font-size: 13px;
+  }
+
+}
+
+@media (min-width: 1440px) {
+
   .hero-content {
     left: 10%;
+    bottom: 15%;
   }
+
+  .hero h1 {
+    font-size: 80px;
+  }
+
 }
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 80px);
+  letter-spacing: clamp(2px, 0.5vw, 6px);
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+}
+
 
 /* PÁGINAS INTERNAS */
 .internal-page {
